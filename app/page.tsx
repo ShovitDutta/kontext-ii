@@ -1,15 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/ui/footer";
 import { ArrowRight, Sparkles, Zap, Shield, Globe } from "lucide-react";
 
 export default function LandingPage() {
-  const { data: session } = useSession();
-
   const features = [
     {
       icon: <Sparkles className="w-8 h-8 text-blue-400" />,
@@ -80,29 +77,16 @@ export default function LandingPage() {
               transition={{ delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
-              {session ? (
-                <Link href="/dashboard">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-lg flex items-center space-x-2 hover:from-blue-700 hover:to-purple-700 transition-all"
-                  >
-                    <span>Go to Dashboard</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </motion.button>
-                </Link>
-              ) : (
-                <Link href="/auth/signin">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-lg flex items-center space-x-2 hover:from-blue-700 hover:to-purple-700 transition-all"
-                  >
-                    <span>Get Started</span>
-                    <ArrowRight className="w-5 h-5" />
-                  </motion.button>
-                </Link>
-              )}
+              <Link href="/dashboard">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-lg flex items-center space-x-2 hover:from-blue-700 hover:to-purple-700 transition-all"
+                >
+                  <span>Get Started</span>
+                  <ArrowRight className="w-5 h-5" />
+                </motion.button>
+              </Link>
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -177,17 +161,15 @@ export default function LandingPage() {
               Join thousands of users who stay informed with AI-powered news
               content
             </p>
-            {!session && (
-              <Link href="/auth/signin">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all"
-                >
-                  Start Reading Now
-                </motion.button>
-              </Link>
-            )}
+            <Link href="/dashboard">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg font-semibold text-lg hover:from-blue-700 hover:to-purple-700 transition-all"
+              >
+                Start Reading Now
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
       </section>

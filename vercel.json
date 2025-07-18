@@ -1,11 +1,11 @@
 {
-  "functions": { "app/api/**/*.ts": { "maxDuration": 30 } },
-  "env": {
-    "DATABASE_URL": "@database_url",
-    "NEXTAUTH_URL": "@nextauth_url",
-    "GEMINI_API_KEY": "@gemini_api_key",
-    "NEXTAUTH_SECRET": "@nextauth_secret",
-    "GOOGLE_CLIENT_ID": "@google_client_id",
-    "GOOGLE_CLIENT_SECRET": "@google_client_secret"
-  }
+    "functions": { "app/api/**/*.ts": { "maxDuration": 30 } },
+    "env": {
+        "DATABASE_URL": "@database_url",
+        "NEXTAUTH_URL": "@nextauth_url",
+        "GEMINI_API_KEY": "@gemini_api_key",
+        "NEXTAUTH_SECRET": "@nextauth_secret",
+        "GOOGLE_CLIENT_ID": "@google_client_id",
+        "GOOGLE_CLIENT_SECRET": "@google_client_secret"
+    }
 }

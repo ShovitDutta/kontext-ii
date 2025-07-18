@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
-import type { NewsItem } from "@/lib/news-api"
+import { Article } from "@prisma/client"
 import { Clock, ExternalLink } from "lucide-react"
 
 interface NewsCardProps {
-  news: NewsItem
+  news: Article
 }
 
 export function NewsCard({ news }: NewsCardProps) {
@@ -18,7 +18,7 @@ export function NewsCard({ news }: NewsCardProps) {
       className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden hover:border-gray-600 transition-all"
     >
       <div className="aspect-video relative overflow-hidden">
-        <img src={news.imageUrl || "/placeholder.svg"} alt={news.title} className="w-full h-full object-cover" />
+        <img src={news.urlToImage || "/placeholder.svg"} alt={news.title} className="w-full h-full object-cover" />
         <div className="absolute top-3 left-3">
           <span className="px-2 py-1 bg-blue-600 text-xs font-semibold rounded-full">{news.category}</span>
         </div>
@@ -30,7 +30,7 @@ export function NewsCard({ news }: NewsCardProps) {
         <p className="text-gray-400 text-sm mb-4 line-clamp-3">{news.description}</p>
 
         <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
-          <span>{news.source}</span>
+          <span>{news.sourceName}</span>
           <div className="flex items-center space-x-1">
             <Clock className="w-3 h-3" />
             <span>{timeAgo}</span>
