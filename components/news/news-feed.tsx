@@ -2,7 +2,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { NewsCard } from "./news-card";
-import { Loader2 } from "lucide-react";
 import { Article } from "@prisma/client";
 import { Card, CardContent } from "@/components/ui/card";
 interface NewsFeedProps {

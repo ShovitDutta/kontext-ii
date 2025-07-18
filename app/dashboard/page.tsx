@@ -13,7 +13,7 @@ export default function Dashboard() {
     return (
         <div className="min-h-screen bg-neutral-900">
             <Navbar />
-            <div className="px-4 sm:px-6 lg:px-8 py-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
                     <h1 className="text-3xl font-bold mb-2">
                         Welcome to <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Kontext</span>

@@ -3,15 +3,20 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Loader2 } from "lucide-react";
 import { ContentLength } from "@prisma/client";
+import ReactMarkdown from "react-markdown";
+
 interface BlogGeneratorProps {
     articleId: string;
 }
+
 type GeneratingState = { [key in ContentLength]?: boolean };
 type GeneratedContentState = { [key in ContentLength]?: string };
+
 export function BlogGenerator({ articleId }: BlogGeneratorProps) {
     const [generating, setGenerating] = useState<GeneratingState>({});
     const [generatedContent, setGeneratedContent] = useState<GeneratedContentState>({});
     const [error, setError] = useState<string | null>(null);
+
     const generateContent = async (length: ContentLength) => {
         setGenerating((prev) => ({ ...prev, [length]: true }));
         setError(null);
@@ -21,6 +26,7 @@ export function BlogGenerator({ articleId }: BlogGeneratorProps) {
                 const err = await response.json();
                 throw new Error(err.error || "Failed to generate content");
             }
+
             if (response.headers.get("Content-Type")?.includes("application/json")) {
                 const data = await response.json();
                 setGeneratedContent((prev) => ({ ...prev, [length]: data.content }));
@@ -44,6 +50,7 @@ export function BlogGenerator({ articleId }: BlogGeneratorProps) {
             setGenerating((prev) => ({ ...prev, [length]: false }));
         }
     };
+
     return (
         <div className="space-y-8">
             <div className="flex space-x-4">
@@ -71,7 +78,11 @@ export function BlogGenerator({ articleId }: BlogGeneratorProps) {
             <div className="space-y-6">
                 {(Object.keys(ContentLength) as Array<keyof typeof ContentLength>).map((key) => (
                     <div key={key}>
-                        {generatedContent[ContentLength[key]] && <div className="prose prose-invert mt-4 bg-neutral-800 p-4 rounded-lg whitespace-pre-wrap">{generatedContent[ContentLength[key]]}</div>}
+                        {generatedContent[ContentLength[key]] && (
+                            <div className="prose prose-invert mt-4 bg-neutral-800 p-4 rounded-lg">
+                                <ReactMarkdown>{generatedContent[ContentLength[key]]!}</ReactMarkdown>
+                            </div>
+                        )}
                     </div>
                 ))}
             </div>

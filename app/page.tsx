@@ -19,7 +19,7 @@ export default function LandingPage() {
         <div className="min-h-screen bg-neutral-900">
             <Navbar />
             <section className="relative overflow-hidden">
-                <div className="px-4 sm:px-6 lg:px-8 py-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
                     <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center">
                         <motion.h1 className="text-5xl md:text-7xl font-bold mb-6" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
                             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">AI-Powered</span> <br />
@@ -51,7 +51,7 @@ export default function LandingPage() {
                 </div>
             </section>
             <section className="py-20">
-                <div className="px-4 sm:px-6 lg:px-8">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <motion.div initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center mb-16">
                         <h2 className="text-4xl font-bold mb-4">
                             <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Powerful Features</span>
