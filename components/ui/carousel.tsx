@@ -75,11 +75,9 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
         <CarouselContext.Provider
             value={{ carouselRef, api: api, opts, orientation: orientation || (opts?.axis === "y" ? "vertical" : "horizontal"), scrollPrev, scrollNext, canScrollPrev, canScrollNext }}
         >
-            {" "}
             <div ref={ref} onKeyDownCapture={handleKeyDown} className={cn("relative", className)} role="region" aria-roledescription="carousel" {...props}>
-                {" "}
-                {children}{" "}
-            </div>{" "}
+                {children}
+            </div>
         </CarouselContext.Provider>
     );
 });
@@ -88,8 +86,7 @@ const CarouselContent = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HT
     const { carouselRef, orientation } = useCarousel();
     return (
         <div ref={carouselRef} className="overflow-hidden">
-            {" "}
-            <div ref={ref} className={cn("flex", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className)} {...props} />{" "}
+            <div ref={ref} className={cn("flex", orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col", className)} {...props} />
         </div>
     );
 });
@@ -111,8 +108,7 @@ const CarouselPrevious = React.forwardRef<HTMLButtonElement, React.ComponentProp
             onClick={scrollPrev}
             {...props}
         >
-            {" "}
-            <ArrowLeft className="h-4 w-4" /> <span className="sr-only">Previous slide</span>{" "}
+            <ArrowLeft className="h-4 w-4" /> <span className="sr-only">Previous slide</span>
         </Button>
     );
 });
@@ -129,8 +125,7 @@ const CarouselNext = React.forwardRef<HTMLButtonElement, React.ComponentProps<ty
             onClick={scrollNext}
             {...props}
         >
-            {" "}
-            <ArrowRight className="h-4 w-4" /> <span className="sr-only">Next slide</span>{" "}
+            <ArrowRight className="h-4 w-4" /> <span className="sr-only">Next slide</span>
         </Button>
     );
 });

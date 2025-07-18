@@ -24,22 +24,19 @@ const InputOTPSlot = React.forwardRef<React.ElementRef<"div">, React.ComponentPr
             )}
             {...props}
         >
-            {" "}
-            {char}{" "}
+            {char}
             {hasFakeCaret && (
                 <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-                    {" "}
-                    <div className="h-4 w-px animate-caret-blink bg-foreground duration-1000" />{" "}
+                    <div className="h-4 w-px animate-caret-blink bg-foreground duration-1000" />
                 </div>
-            )}{" "}
+            )}
         </div>
     );
 });
 InputOTPSlot.displayName = "InputOTPSlot";
 const InputOTPSeparator = React.forwardRef<React.ElementRef<"div">, React.ComponentPropsWithoutRef<"div">>(({ ...props }, ref) => (
     <div ref={ref} role="separator" {...props}>
-        {" "}
-        <Dot />{" "}
+        <Dot />
     </div>
 ));
 InputOTPSeparator.displayName = "InputOTPSeparator";

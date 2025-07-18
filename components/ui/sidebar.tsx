@@ -72,19 +72,16 @@ const SidebarProvider = React.forwardRef<HTMLDivElement, React.ComponentProps<"d
         );
         return (
             <SidebarContext.Provider value={contextValue}>
-                {" "}
                 <TooltipProvider delayDuration={0}>
-                    {" "}
                     <div
                         style={{ "--sidebar-width": SIDEBAR_WIDTH, "--sidebar-width-icon": SIDEBAR_WIDTH_ICON, ...style } as React.CSSProperties}
                         className={cn("group/sidebar-wrapper flex min-h-svh w-full has-[[data-variant=inset]]:bg-sidebar", className)}
                         ref={ref}
                         {...props}
                     >
-                        {" "}
-                        {children}{" "}
-                    </div>{" "}
-                </TooltipProvider>{" "}
+                        {children}
+                    </div>
+                </TooltipProvider>
             </SidebarContext.Provider>
         );
     },
@@ -96,15 +93,13 @@ const Sidebar = React.forwardRef<HTMLDivElement, React.ComponentProps<"div"> & {
         if (collapsible === "none") {
             return (
                 <div className={cn("flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground", className)} ref={ref} {...props}>
-                    {" "}
-                    {children}{" "}
+                    {children}
                 </div>
             );
         }
         if (isMobile) {
             return (
                 <Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
-                    {" "}
                     <SheetContent
                         data-sidebar="sidebar"
                         data-mobile="true"
@@ -112,9 +107,8 @@ const Sidebar = React.forwardRef<HTMLDivElement, React.ComponentProps<"div"> & {
                         style={{ "--sidebar-width": SIDEBAR_WIDTH_MOBILE } as React.CSSProperties}
                         side={side}
                     >
-                        {" "}
-                        <div className="flex h-full w-full flex-col">{children}</div>{" "}
-                    </SheetContent>{" "}
+                        <div className="flex h-full w-full flex-col">{children}</div>
+                    </SheetContent>
                 </Sheet>
             );
         }
@@ -127,7 +121,6 @@ const Sidebar = React.forwardRef<HTMLDivElement, React.ComponentProps<"div"> & {
                 data-variant={variant}
                 data-side={side}
             >
-                {" "}
                 <div
                     className={cn(
                         "duration-200 relative h-svh w-[--sidebar-width] bg-transparent transition-[width] ease-linear",
@@ -137,7 +130,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, React.ComponentProps<"div"> & {
                             ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]"
                             : "group-data-[collapsible=icon]:w-[--sidebar-width-icon]",
                     )}
-                />{" "}
+                />
                 <div
                     className={cn(
                         "duration-200 fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] ease-linear md:flex",
@@ -151,15 +144,13 @@ const Sidebar = React.forwardRef<HTMLDivElement, React.ComponentProps<"div"> & {
                     )}
                     {...props}
                 >
-                    {" "}
                     <div
                         data-sidebar="sidebar"
                         className="flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow"
                     >
-                        {" "}
-                        {children}{" "}
-                    </div>{" "}
-                </div>{" "}
+                        {children}
+                    </div>
+                </div>
             </div>
         );
     },
@@ -180,8 +171,7 @@ const SidebarTrigger = React.forwardRef<React.ElementRef<typeof Button>, React.C
             }}
             {...props}
         >
-            {" "}
-            <PanelLeft /> <span className="sr-only">Toggle Sidebar</span>{" "}
+            <PanelLeft /> <span className="sr-only">Toggle Sidebar</span>
         </Button>
     );
 });
@@ -321,8 +311,7 @@ const SidebarMenuButton = React.forwardRef<
     }
     return (
         <Tooltip>
-            {" "}
-            <TooltipTrigger asChild>{button}</TooltipTrigger> <TooltipContent side="right" align="center" hidden={state !== "collapsed" || isMobile} {...tooltip} />{" "}
+            <TooltipTrigger asChild>{button}</TooltipTrigger> <TooltipContent side="right" align="center" hidden={state !== "collapsed" || isMobile} {...tooltip} />
         </Tooltip>
     );
 });
@@ -374,9 +363,8 @@ const SidebarMenuSkeleton = React.forwardRef<HTMLDivElement, React.ComponentProp
     }, []);
     return (
         <div ref={ref} data-sidebar="menu-skeleton" className={cn("rounded-md h-8 flex gap-2 px-2 items-center", className)} {...props}>
-            {" "}
-            {showIcon && <Skeleton className="size-4 rounded-md" data-sidebar="menu-skeleton-icon" />}{" "}
-            <Skeleton className="h-4 flex-1 max-w-[--skeleton-width]" data-sidebar="menu-skeleton-text" style={{ "--skeleton-width": width } as React.CSSProperties} />{" "}
+            {showIcon && <Skeleton className="size-4 rounded-md" data-sidebar="menu-skeleton-icon" />}
+            <Skeleton className="h-4 flex-1 max-w-[--skeleton-width]" data-sidebar="menu-skeleton-text" style={{ "--skeleton-width": width } as React.CSSProperties} />
         </div>
     );
 });

@@ -11,8 +11,7 @@ const FormFieldContext = React.createContext<FormFieldContextValue>({} as FormFi
 const FormField = <TFieldValues extends FieldValues = FieldValues, TName extends FieldPath<TFieldValues> = FieldPath<TFieldValues>>({ ...props }: ControllerProps<TFieldValues, TName>) => {
     return (
         <FormFieldContext.Provider value={{ name: props.name }}>
-            {" "}
-            <Controller {...props} />{" "}
+            <Controller {...props} />
         </FormFieldContext.Provider>
     );
 };
@@ -33,8 +32,7 @@ const FormItem = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
     const id = React.useId();
     return (
         <FormItemContext.Provider value={{ id }}>
-            {" "}
-            <div ref={ref} className={cn("space-y-2", className)} {...props} />{" "}
+            <div ref={ref} className={cn("space-y-2", className)} {...props} />
         </FormItemContext.Provider>
     );
 });
@@ -62,8 +60,7 @@ const FormMessage = React.forwardRef<HTMLParagraphElement, React.HTMLAttributes<
     }
     return (
         <p ref={ref} id={formMessageId} className={cn("text-sm font-medium text-destructive", className)} {...props}>
-            {" "}
-            {body}{" "}
+            {body}
         </p>
     );
 });

@@ -20,8 +20,7 @@ const ContextMenuSubTrigger = React.forwardRef<React.ElementRef<typeof ContextMe
             )}
             {...props}
         >
-            {" "}
-            {children} <ChevronRight className="ml-auto h-4 w-4" />{" "}
+            {children} <ChevronRight className="ml-auto h-4 w-4" />
         </ContextMenuPrimitive.SubTrigger>
     ),
 );
@@ -42,7 +41,6 @@ ContextMenuSubContent.displayName = ContextMenuPrimitive.SubContent.displayName;
 const ContextMenuContent = React.forwardRef<React.ElementRef<typeof ContextMenuPrimitive.Content>, React.ComponentPropsWithoutRef<typeof ContextMenuPrimitive.Content>>(
     ({ className, ...props }, ref) => (
         <ContextMenuPrimitive.Portal>
-            {" "}
             <ContextMenuPrimitive.Content
                 ref={ref}
                 className={cn(
@@ -50,7 +48,7 @@ const ContextMenuContent = React.forwardRef<React.ElementRef<typeof ContextMenuP
                     className,
                 )}
                 {...props}
-            />{" "}
+            />
         </ContextMenuPrimitive.Portal>
     ),
 );
@@ -80,15 +78,12 @@ const ContextMenuCheckboxItem = React.forwardRef<React.ElementRef<typeof Context
             checked={checked}
             {...props}
         >
-            {" "}
             <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-                {" "}
                 <ContextMenuPrimitive.ItemIndicator>
-                    {" "}
-                    <Check className="h-4 w-4" />{" "}
-                </ContextMenuPrimitive.ItemIndicator>{" "}
-            </span>{" "}
-            {children}{" "}
+                    <Check className="h-4 w-4" />
+                </ContextMenuPrimitive.ItemIndicator>
+            </span>
+            {children}
         </ContextMenuPrimitive.CheckboxItem>
     ),
 );
@@ -103,15 +98,12 @@ const ContextMenuRadioItem = React.forwardRef<React.ElementRef<typeof ContextMen
             )}
             {...props}
         >
-            {" "}
             <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-                {" "}
                 <ContextMenuPrimitive.ItemIndicator>
-                    {" "}
-                    <Circle className="h-2 w-2 fill-current" />{" "}
-                </ContextMenuPrimitive.ItemIndicator>{" "}
-            </span>{" "}
-            {children}{" "}
+                    <Circle className="h-2 w-2 fill-current" />
+                </ContextMenuPrimitive.ItemIndicator>
+            </span>
+            {children}
         </ContextMenuPrimitive.RadioItem>
     ),
 );

@@ -34,8 +34,7 @@ const MenubarSubTrigger = React.forwardRef<React.ElementRef<typeof MenubarPrimit
             )}
             {...props}
         >
-            {" "}
-            {children} <ChevronRight className="ml-auto h-4 w-4" />{" "}
+            {children} <ChevronRight className="ml-auto h-4 w-4" />
         </MenubarPrimitive.SubTrigger>
     ),
 );
@@ -54,7 +53,6 @@ MenubarSubContent.displayName = MenubarPrimitive.SubContent.displayName;
 const MenubarContent = React.forwardRef<React.ElementRef<typeof MenubarPrimitive.Content>, React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Content>>(
     ({ className, align = "start", alignOffset = -4, sideOffset = 8, ...props }, ref) => (
         <MenubarPrimitive.Portal>
-            {" "}
             <MenubarPrimitive.Content
                 ref={ref}
                 align={align}
@@ -65,7 +63,7 @@ const MenubarContent = React.forwardRef<React.ElementRef<typeof MenubarPrimitive
                     className,
                 )}
                 {...props}
-            />{" "}
+            />
         </MenubarPrimitive.Portal>
     ),
 );
@@ -95,15 +93,12 @@ const MenubarCheckboxItem = React.forwardRef<React.ElementRef<typeof MenubarPrim
             checked={checked}
             {...props}
         >
-            {" "}
             <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-                {" "}
                 <MenubarPrimitive.ItemIndicator>
-                    {" "}
-                    <Check className="h-4 w-4" />{" "}
-                </MenubarPrimitive.ItemIndicator>{" "}
-            </span>{" "}
-            {children}{" "}
+                    <Check className="h-4 w-4" />
+                </MenubarPrimitive.ItemIndicator>
+            </span>
+            {children}
         </MenubarPrimitive.CheckboxItem>
     ),
 );
@@ -118,15 +113,12 @@ const MenubarRadioItem = React.forwardRef<React.ElementRef<typeof MenubarPrimiti
             )}
             {...props}
         >
-            {" "}
             <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
-                {" "}
                 <MenubarPrimitive.ItemIndicator>
-                    {" "}
-                    <Circle className="h-2 w-2 fill-current" />{" "}
-                </MenubarPrimitive.ItemIndicator>{" "}
-            </span>{" "}
-            {children}{" "}
+                    <Circle className="h-2 w-2 fill-current" />
+                </MenubarPrimitive.ItemIndicator>
+            </span>
+            {children}
         </MenubarPrimitive.RadioItem>
     ),
 );

@@ -32,23 +32,19 @@ export function NewsFeed({ category }: NewsFeedProps) {
     if (loading) {
         return (
             <div className="flex justify-center items-center py-20">
-                {" "}
-                <Loader2 className="w-8 h-8 animate-spin text-blue-500" />{" "}
+                <Loader2 className="w-8 h-8 animate-spin text-blue-500" />
             </div>
         );
     }
     return (
         <div>
-            {" "}
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {" "}
                 {news.map((item, index) => (
                     <motion.div key={item.id} initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: index * 0.1 }}>
-                        {" "}
-                        <NewsCard news={item} />{" "}
+                        <NewsCard news={item} />
                     </motion.div>
-                ))}{" "}
-            </motion.div>{" "}
+                ))}
+            </motion.div>
         </div>
     );
 }
