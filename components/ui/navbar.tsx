@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Home } from "lucide-react";
 export function Navbar() {
     return (
-        <motion.nav initial={{ y: -100 }} animate={{ y: 0 }} className="bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
+        <motion.nav initial={{ y: -100 }} animate={{ y: 0 }} className="bg-neutral-800 border-b border-neutral-700 sticky top-0 z-50">
             <div className="px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
                     <Link href="/" className="flex items-center space-x-2">
@@ -14,7 +14,7 @@ export function Navbar() {
                     </Link>
                     <div className="flex items-center space-x-4">
                         <Link href="/dashboard">
-                            <motion.button whileHover={{ scale: 1.05 }} className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 transition-colors">
+                            <motion.button whileHover={{ scale: 1.05 }} className="flex items-center space-x-2 px-4 py-2 rounded-lg bg-neutral-700 hover:bg-neutral-600 transition-colors">
                                 <Home className="w-4 h-4" /> <span>Dashboard</span>
                             </motion.button>
                         </Link>

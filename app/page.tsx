@@ -16,7 +16,7 @@ export default function LandingPage() {
         { icon: <Globe className="w-8 h-8 text-yellow-400" />, title: "Multiple Formats", description: "Choose from short summaries, detailed analysis, or explained versions for any news." },
     ];
     return (
-        <div className="min-h-screen bg-gray-900">
+        <div className="min-h-screen bg-neutral-900">
             <Navbar />
             <section className="relative overflow-hidden">
                 <div className="px-4 sm:px-6 lg:px-8 py-20">
@@ -25,7 +25,7 @@ export default function LandingPage() {
                             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">AI-Powered</span> <br />
                             <span className="text-white">News Blog</span>
                         </motion.h1>
-                        <motion.p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
+                        <motion.p className="text-xl text-neutral-300 mb-8 max-w-3xl mx-auto" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}>
                             Transform complex technology news into engaging, personalized blog posts. Stay informed with AI-generated content tailored to your understanding level.
                         </motion.p>
                         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -38,7 +38,7 @@ export default function LandingPage() {
                                     <span>Get Started</span> <ArrowRight className="w-5 h-5" />
                                 </motion.button>
                             </Link>
-                            <motion.button whileHover={{ scale: 1.05 }} className="px-8 py-4 border border-gray-600 rounded-lg font-semibold text-lg hover:bg-gray-800 transition-colors">
+                            <motion.button whileHover={{ scale: 1.05 }} className="px-8 py-4 border border-neutral-600 rounded-lg font-semibold text-lg hover:bg-neutral-800 transition-colors">
                                 Learn More
                             </motion.button>
                         </motion.div>
@@ -56,7 +56,7 @@ export default function LandingPage() {
                         <h2 className="text-4xl font-bold mb-4">
                             <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Powerful Features</span>
                         </h2>
-                        <p className="text-xl text-gray-300 max-w-2xl mx-auto">Everything you need to stay informed about the latest technology trends</p>
+                        <p className="text-xl text-neutral-300 max-w-2xl mx-auto">Everything you need to stay informed about the latest technology trends</p>
                     </motion.div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {features.map((feature, index) => (
@@ -66,9 +66,9 @@ export default function LandingPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 whileHover={{ scale: 1.05 }}
-                                className="bg-gray-800 p-6 rounded-xl border border-gray-700 hover:border-gray-600 transition-all"
+                                className="bg-neutral-800 p-6 rounded-xl border border-neutral-700 hover:border-neutral-600 transition-all"
                             >
-                                <div className="mb-4">{feature.icon}</div> <h3 className="text-xl font-semibold mb-2">{feature.title}</h3> <p className="text-gray-400">{feature.description}</p>
+                                <div className="mb-4">{feature.icon}</div> <h3 className="text-xl font-semibold mb-2">{feature.title}</h3> <p className="text-neutral-400">{feature.description}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -80,10 +80,10 @@ export default function LandingPage() {
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 p-12 rounded-2xl border border-gray-700"
+                        className="bg-gradient-to-r from-blue-900/50 to-purple-900/50 p-12 rounded-2xl border border-neutral-700"
                     >
                         <h2 className="text-3xl font-bold mb-4">Ready to Transform Your News Experience?</h2>
-                        <p className="text-xl text-gray-300 mb-8">Join thousands of users who stay informed with AI-powered news content</p>
+                        <p className="text-xl text-neutral-300 mb-8">Join thousands of users who stay informed with AI-powered news content</p>
                         <Link href="/dashboard">
                             <motion.button
                                 whileHover={{ scale: 1.05 }}

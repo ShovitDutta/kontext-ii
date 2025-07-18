@@ -9,7 +9,7 @@ interface NewsCardProps {
 export function NewsCard({ news }: NewsCardProps) {
     const timeAgo = new Date(news.publishedAt).toLocaleDateString();
     return (
-        <motion.div whileHover={{ scale: 1.02 }} className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden hover:border-gray-600 transition-all">
+        <motion.div whileHover={{ scale: 1.02 }} className="bg-neutral-800 rounded-xl border border-neutral-700 overflow-hidden hover:border-neutral-600 transition-all">
             <div className="aspect-video relative overflow-hidden">
                 <img src={news.urlToImage || "/placeholder.svg"} alt={news.title} className="w-full h-full object-cover" />
                 <div className="absolute top-3 left-3">
@@ -17,8 +17,8 @@ export function NewsCard({ news }: NewsCardProps) {
                 </div>
             </div>
             <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2 line-clamp-2">{news.title}</h3> <p className="text-gray-400 text-sm mb-4 line-clamp-3">{news.description}</p>
-                <div className="flex items-center justify-between text-xs text-gray-500 mb-4">
+                <h3 className="text-lg font-semibold mb-2 line-clamp-2">{news.title}</h3> <p className="text-neutral-400 text-sm mb-4 line-clamp-3">{news.description}</p>
+                <div className="flex items-center justify-between text-xs text-neutral-500 mb-4">
                     <span>{news.sourceName}</span>
                     <div className="flex items-center space-x-1">
                         <Clock className="w-3 h-3" /> <span>{timeAgo}</span>
@@ -30,7 +30,7 @@ export function NewsCard({ news }: NewsCardProps) {
                             Generate AI Blog
                         </motion.button>
                     </Link>
-                    <motion.a whileHover={{ scale: 1.05 }} href={news.url} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-700 hover:bg-gray-600 rounded-lg transition-colors">
+                    <motion.a whileHover={{ scale: 1.05 }} href={news.url} target="_blank" rel="noopener noreferrer" className="p-2 bg-neutral-700 hover:bg-neutral-600 rounded-lg transition-colors">
                         <ExternalLink className="w-4 h-4" />
                     </motion.a>
                 </div>

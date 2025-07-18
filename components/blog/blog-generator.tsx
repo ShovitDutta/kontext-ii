@@ -48,7 +48,7 @@ export function BlogGenerator({ articleId }: BlogGeneratorProps) {
         const content = generatedContent[length];
         if (!content) return null;
         return (
-            <div className="prose prose-invert mt-4 bg-gray-800 p-4 rounded-lg">
+            <div className="prose prose-invert mt-4 bg-neutral-800 p-4 rounded-lg">
                 {content.split("\n").map((line, i) => {
                     if (line.startsWith("## ")) {
                         return (
@@ -59,7 +59,7 @@ export function BlogGenerator({ articleId }: BlogGeneratorProps) {
                     }
                     if (line.startsWith("> ")) {
                         return (
-                            <blockquote key={i} className="border-l-4 border-gray-500 pl-4 italic my-4">
+                            <blockquote key={i} className="border-l-4 border-neutral-500 pl-4 italic my-4">
                                 {line.substring(2)}
                             </blockquote>
                         );
@@ -92,7 +92,7 @@ export function BlogGenerator({ articleId }: BlogGeneratorProps) {
             <div className="space-y-6">
                 {(Object.keys(ContentLength) as Array<keyof typeof ContentLength>).map((key) => (
                     <div key={key}>
-                        {generatedContent[ContentLength[key]] && <div className="prose prose-invert mt-4 bg-gray-800 p-4 rounded-lg whitespace-pre-wrap">{generatedContent[ContentLength[key]]}</div>}
+                        {generatedContent[ContentLength[key]] && <div className="prose prose-invert mt-4 bg-neutral-800 p-4 rounded-lg whitespace-pre-wrap">{generatedContent[ContentLength[key]]}</div>}
                     </div>
                 ))}
             </div>

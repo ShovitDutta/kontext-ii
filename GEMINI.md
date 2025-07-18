@@ -76,4 +76,9 @@ This document summarizes the key actions taken to integrate the news fetching an
     *   Otherwise, it serves the articles directly from the database, ensuring a fast response time and efficient API usage.
     *   This strategy ensures that the database of articles grows over time without storing redundant information.
 
+## Phase 8: UI & Code Cleanup
+
+1.  **Color Scheme**: Ran a script to replace all instances of `-gray-` with `-neutral-` in `.tsx` files to standardize the color palette.
+2.  **File Cleanup**: Removed obsolete files from the `lib` directory (`gemini.ts`) and cleaned up `news-api.ts` to only export essential data, removing mock data and unused functions.
+
 The project has been successfully built and all identified type errors have been resolved. The application is now in a stable state with no authentication.

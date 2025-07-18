@@ -33,7 +33,7 @@ export const viewport = { width: "device-width", initialScale: 1, maximumScale: 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" className="dark">
-            <body className={`${inter.className} bg-gray-900 text-white min-h-screen antialiased`}>
+            <body className={`${inter.className} bg-neutral-900 text-white min-h-screen antialiased`}>
                 <ErrorBoundary>{children}</ErrorBoundary>
             </body>
         </html>
