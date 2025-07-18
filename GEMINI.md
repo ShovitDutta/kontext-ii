@@ -66,4 +66,14 @@ This document summarizes the key actions taken to integrate the news fetching an
     *   Corrected a bug in the `/api/news` route where the "all" category was being improperly rejected.
     *   Resolved a `TypeError: fetch is not a function` by removing the `newsapi` and `node-fetch` libraries and using the native `fetch` API directly in the API route. This makes the implementation more robust and less dependent on third-party libraries for this core functionality.
 
+## Phase 7: Data Persistence & Caching Strategy
+
+1.  **Duplicate Prevention**: The application ensures that no duplicate articles are saved to the database. This is achieved through two layers of protection:
+    *   **Database-Level**: The `Article` model in `prisma/schema.prisma` has `@unique` constraints on the `title` and `url` fields.
+    *   **Application-Level**: The `/api/news` route uses Prisma's `createMany({ skipDuplicates: true })` function, which gracefully ignores any incoming articles that would violate the unique constraints.
+2.  **Caching Logic**: To avoid excessive API calls and rate-limiting, the `/api/news` route uses a time-based caching strategy.
+    *   It only fetches new data from the external NewsAPI if the most recent article for a given category in the database is **more than one hour old**.
+    *   Otherwise, it serves the articles directly from the database, ensuring a fast response time and efficient API usage.
+    *   This strategy ensures that the database of articles grows over time without storing redundant information.
+
 The project has been successfully built and all identified type errors have been resolved. The application is now in a stable state with no authentication.
