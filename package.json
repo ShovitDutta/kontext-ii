@@ -1,17 +1,17 @@
 {
-    "name": "kontext",
-    "version": "0.1.0",
     "private": true,
+    "name": "kontext",
+    "version": "1.0.0",
     "description": "Kontext - AI-Powered News Blog, Stay updated with the latest technology news, transformed into engaging blog posts using AI.",
     "scripts": {
         "dev": "next dev",
         "lint": "next lint",
         "build": "next build",
         "start": "next start",
-        "db:migrate": "prisma migrate dev",
-        "db:generate": "prisma generate",
-        "db:studio": "prisma studio",
         "db:push": "prisma db push",
+        "db:studio": "prisma studio",
+        "db:generate": "prisma generate",
+        "db:migrate": "prisma migrate dev",
         "db:reset": "prisma migrate reset --force"
     },
     "dependencies": {
