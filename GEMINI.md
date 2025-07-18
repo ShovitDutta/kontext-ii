@@ -122,4 +122,9 @@ This document summarizes the key actions taken to integrate the news fetching an
 
 1.  **Linting**: Fixed a linting warning in `components/news/news-feed.tsx` by removing an unused import (`Loader2`).
 
+## Phase 14: News Detail Page Layout Refinement
+
+1.  **Single-Column Layout**: Refactored the `app/news/[id]/page.tsx` from a two-column grid to a single, centered column (`max-w-4xl`).
+2.  **Content Flow**: The `BlogGenerator` component was moved to appear directly below the main article image, placing the content generation options prominently before the article's text content. This streamlines the user flow for generating content based on the article.
+
 The project has been successfully built and all identified type errors have been resolved. The application is now in a stable state with no authentication.
