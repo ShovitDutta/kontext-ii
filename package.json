@@ -12,12 +12,13 @@
         "db:studio": "prisma studio",
         "db:generate": "prisma generate",
         "db:migrate": "prisma migrate dev",
-        "db:reset": "prisma migrate reset --force"
+        "db:deploy": "prisma migrate deploy",
+        "clean": "npx rimraf .next node_modules",
+        "db:reset": "prisma migrate reset --force",
+        "preflight:prod": "npm run clean && npm ci && npm run lint && npm run db:generate && npm run build",
+        "preflight:dev": "npm run clean && npm ci && npm run lint && npm run db:migrate && npm run db:generate && npm run build"
     },
     "dependencies": {
-        "@auth/core": "latest",
-        "@emotion/is-prop-valid": "latest",
-        "@google/generative-ai": "latest",
         "@hookform/resolvers": "^3.9.1",
         "@langchain/core": "^0.3.65",
         "@langchain/google-genai": "^0.2.15",
@@ -58,7 +59,6 @@
         "date-fns": "4.1.0",
         "dotenv": "^17.2.0",
         "embla-carousel-react": "8.5.1",
-        "framer-motion": "latest",
         "input-otp": "1.4.1",
         "langchain": "^0.3.30",
         "lucide-react": "^0.454.0",
