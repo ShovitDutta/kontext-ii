@@ -56,7 +56,14 @@ export function BlogGenerator({ articleId }: BlogGeneratorProps) {
                         disabled={generating[ContentLength[key]]}
                         className="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg font-semibold transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
                     >
-                        {generating[ContentLength[key]] && <Loader2 className="w-4 h-4 animate-spin" />} <span>Generate {key.toLowerCase()} version</span>
+                        {generating[ContentLength[key]] ? (
+                            <>
+                                <Loader2 className="w-4 h-4 animate-spin" />
+                                <span>Generating...</span>
+                            </>
+                        ) : (
+                            <span>Generate {key.toLowerCase()} version</span>
+                        )}
                     </motion.button>
                 ))}
             </div>

@@ -1,4 +1,5 @@
 "use client";
+import { Article } from "@prisma/client";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/ui/navbar";
@@ -8,6 +9,7 @@ import { NewsFeed } from "@/components/news/news-feed";
 import { NewsCategories } from "@/components/news/news-categories";
 export default function Dashboard() {
     const [selectedCategory, setSelectedCategory] = useState("all");
+    const [allArticles, setAllArticles] = useState<Article[]>([]);
     return (
         <div className="min-h-screen bg-neutral-900">
             <Navbar />
@@ -18,7 +20,8 @@ export default function Dashboard() {
                     </h1>
                     <p className="text-neutral-400">Discover the latest technology news, transformed by AI</p>
                 </motion.div>
-                <NewsCategories categories={newsCategories} selectedCategory={selectedCategory} onCategoryChange={setSelectedCategory} /> <NewsFeed category={selectedCategory} />
+                <NewsCategories categories={newsCategories} selectedCategory={selectedCategory} onCategoryChange={setSelectedCategory} />{" "}
+                <NewsFeed category={selectedCategory} allArticles={allArticles} setAllArticles={setAllArticles} />
             </div>
             <Footer />
         </div>
