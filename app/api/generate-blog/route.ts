@@ -42,7 +42,7 @@ export async function POST(req: NextRequest) {
         const apiKey = getApiKeyForLength(length);
         const genAI = new GoogleGenerativeAI(apiKey);
         const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash-preview-05-20" });
-        const prompt = promptBuilder(article.category, length.toLowerCase() as any) + articleHtml;
+        const prompt = promptBuilder(article.category, length.toLowerCase() as 'short' | 'medium' | 'explained') + articleHtml;
         const streamingResult = await model.generateContentStream(prompt);
         const stream = new ReadableStream({
             async start(controller) {

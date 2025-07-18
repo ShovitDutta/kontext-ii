@@ -1,27 +1,47 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+
+interface NewsApiArticle {
+    source: {
+        id: string | null;
+        name: string;
+    };
+    author: string | null;
+    title: string;
+    description: string | null;
+    url: string;
+    urlToImage: string | null;
+    publishedAt: string;
+    content: string | null;
+}
+
 type NewsApiCategory = "business" | "entertainment" | "general" | "health" | "science" | "sports" | "technology";
 const VALID_CATEGORIES: NewsApiCategory[] = ["business", "entertainment", "general", "health", "science", "sports", "technology"];
+
 function isValidCategory(category: string): category is NewsApiCategory | "all" {
     return category === "all" || VALID_CATEGORIES.includes(category as NewsApiCategory);
 }
+
 async function fetchAndSaveArticles(category: NewsApiCategory | "all") {
     const apiKey = process.env.NEWS_API_KEY;
     if (!apiKey) {
         console.error("NEWS_API_KEY is not set.");
         return;
     }
+
     let url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
     if (category !== "all") {
         url += `&category=${category}`;
     }
+
     try {
         const response = await fetch(url);
         const data = await response.json();
+
         if (data.status === "ok") {
             const articles = data.articles
-                .filter((article: any) => article.title && article.url)
-                .map((article: any) => ({
+                .filter((article: NewsApiArticle) => article.title && article.url)
+                .map((article: NewsApiArticle) => ({
                     title: article.title!,
                     url: article.url!,
                     description: article.description,

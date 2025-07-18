@@ -37,40 +37,12 @@ export function BlogGenerator({ articleId }: BlogGeneratorProps) {
                     setGeneratedContent((prev) => ({ ...prev, [length]: content }));
                 }
             }
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err: unknown) {
+            setError((err as Error).message);
             console.error("Generation error:", err);
         } finally {
             setGenerating((prev) => ({ ...prev, [length]: false }));
         }
-    };
-    const renderContent = (length: ContentLength) => {
-        const content = generatedContent[length];
-        if (!content) return null;
-        return (
-            <div className="prose prose-invert mt-4 bg-neutral-800 p-4 rounded-lg">
-                {content.split("\n").map((line, i) => {
-                    if (line.startsWith("## ")) {
-                        return (
-                            <h2 key={i} className="text-2xl font-bold mt-4 mb-2">
-                                {line.substring(3)}
-                            </h2>
-                        );
-                    }
-                    if (line.startsWith("> ")) {
-                        return (
-                            <blockquote key={i} className="border-l-4 border-neutral-500 pl-4 italic my-4">
-                                {line.substring(2)}
-                            </blockquote>
-                        );
-                    }
-                    if (line.startsWith("- ")) {
-                        return <li key={i}>{line.substring(2)}</li>;
-                    }
-                    return <p key={i}>{line}</p>;
-                })}
-            </div>
-        );
     };
     return (
         <div className="space-y-8">

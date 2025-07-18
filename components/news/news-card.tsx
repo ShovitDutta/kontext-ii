@@ -1,4 +1,4 @@
-"use client";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Article } from "@prisma/client";
@@ -11,7 +11,7 @@ export function NewsCard({ news }: NewsCardProps) {
     return (
         <motion.div whileHover={{ scale: 1.02 }} className="bg-neutral-800 rounded-xl border border-neutral-700 overflow-hidden hover:border-neutral-600 transition-all">
             <div className="aspect-video relative overflow-hidden">
-                <img src={news.urlToImage || "/placeholder.svg"} alt={news.title} className="w-full h-full object-cover" />
+                <Image src={news.urlToImage || "/placeholder.svg"} alt={news.title} fill style={{ objectFit: "cover" }} />
                 <div className="absolute top-3 left-3">
                     <span className="px-2 py-1 bg-blue-600 text-xs font-semibold rounded-full">{news.category}</span>
                 </div>

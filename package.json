@@ -6,8 +6,8 @@
     "scripts": {
         "dev": "next dev",
         "lint": "next lint",
-        "build": "next build",
         "start": "next start",
+        "build": "next build",
         "db:push": "prisma db push",
         "db:studio": "prisma studio",
         "db:generate": "prisma generate",
@@ -15,6 +15,7 @@
         "db:deploy": "prisma migrate deploy",
         "clean": "npx rimraf .next node_modules",
         "db:reset": "prisma migrate reset --force",
+        "prebuild": "npm run db:generate && npm run db:deploy",
         "preflight:prod": "npm run clean && npm ci && npm run lint && npm run db:generate && npm run build",
         "preflight:dev": "npm run clean && npm ci && npm run lint && npm run db:migrate && npm run db:generate && npm run build",
         "preflight:dev:clean": "npm run clean && npm ci && npm run lint && npm run db:reset && npm run db:migrate && npm run db:generate && npm run build"
