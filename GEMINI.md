@@ -59,4 +59,11 @@ This document summarizes the key actions taken to integrate the news fetching an
 2.  **Database Scripts**:
     *   Added a set of `db:*` scripts to `package.json` for easier database management (`db:migrate`, `db:generate`, `db:studio`, `db:push`, `db:reset`).
 
+## Phase 6: Final Debugging & Refinement
+
+1.  **Hydration Error**: Fixed a React hydration error by removing extraneous whitespace from `app/layout.tsx`.
+2.  **API Logic**:
+    *   Corrected a bug in the `/api/news` route where the "all" category was being improperly rejected.
+    *   Resolved a `TypeError: fetch is not a function` by removing the `newsapi` and `node-fetch` libraries and using the native `fetch` API directly in the API route. This makes the implementation more robust and less dependent on third-party libraries for this core functionality.
+
 The project has been successfully built and all identified type errors have been resolved. The application is now in a stable state with no authentication.
